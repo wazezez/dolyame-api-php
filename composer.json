@@ -1,5 +1,5 @@
 {
-    "name": "vkolegov/dolyame-api-php",
+    "name": "xdemonme/dolyame-api-php",
     "description": "Tinkoff dolyame service API client https://dolyame.ru/",
     "type": "library",
     "require": {
