@@ -15,6 +15,7 @@ class CreateOrderRequest extends AbstractOrderRequest
     private ?string $notificationURL = null;
     private string $failURL;
     private string $successURL;
+    private array $data = [];
 
     public function setFiscalizationSettings(array $fiscalizationSettings): CreateOrderRequest
     {
@@ -45,6 +46,12 @@ class CreateOrderRequest extends AbstractOrderRequest
         $this->successURL = $successURL;
         return $this;
     }
+    
+    public function setData(array $data): CreateOrderRequest
+    {
+        $this->data = $data;
+        return $this;
+    }
 
     public function toArray(): array
     {
@@ -60,6 +67,7 @@ class CreateOrderRequest extends AbstractOrderRequest
             'notification_url' => $this->notificationURL,
             'fail_url' => $this->failURL,
             'success_url' => $this->successURL,
+            'data' => $this->data,
         ];
     }
 }
