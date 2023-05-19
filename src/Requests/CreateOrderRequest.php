@@ -55,7 +55,7 @@ class CreateOrderRequest extends AbstractOrderRequest
 
     public function toArray(): array
     {
-        return [
+        $return = [
             'order' => [
                 'id' => $this->id,
                 'amount' => $this->amount,
@@ -67,7 +67,10 @@ class CreateOrderRequest extends AbstractOrderRequest
             'notification_url' => $this->notificationURL,
             'fail_url' => $this->failURL,
             'success_url' => $this->successURL,
-            'data' => $this->data,
         ];
+        if($this->data) {
+            $return['data'] = $this->data;
+        }
+        return $return;
     }
 }
