@@ -46,10 +46,10 @@ class CreateOrderRequest extends AbstractOrderRequest
         $this->successURL = $successURL;
         return $this;
     }
-    
-    public function setData(array $data): CreateOrderRequest
+
+    public function addData(string $key, $val): CreateOrderRequest
     {
-        $this->data = $data;
+        $this->data[$key] = (string) $val;
         return $this;
     }
 
@@ -68,7 +68,8 @@ class CreateOrderRequest extends AbstractOrderRequest
             'fail_url' => $this->failURL,
             'success_url' => $this->successURL,
         ];
-        if($this->data) {
+
+        if ($this->data) {
             $return['data'] = $this->data;
         }
         return $return;
