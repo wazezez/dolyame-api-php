@@ -69,11 +69,19 @@ class ItemReceipt implements Arrayable
 
     public function toArray(): array
     {
-        return [
+        $data = [
             'tax' => $this->tax,
             'payment_method' => $this->paymentMethod,
-            'payment_object' => $this->paymentObject ?? null,
-            'measurement_unit' => $this->measurementUnit ?? null,
         ];
+
+        if($this->paymentObject) {
+            $data['payment_object'] = $this->paymentObject;
+        }
+
+        if($this->measurementUnit) {
+            $data['measurement_unit'] = $this->paymentObject;
+        }
+
+        return $data;
     }
 }
